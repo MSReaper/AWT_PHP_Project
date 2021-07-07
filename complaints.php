@@ -60,54 +60,9 @@
 <div class="col-lg-8 col-xl-6">
 
 
-<?php
-
-session_start();
-
-if(isset($_POST['submit'])){
 
 
-$server = "localhost";
-$user = "root";
-$pass = "";
-$db = "hoteldata";
-
-$sql = mysqli_connect($server,$user,$pass,$db);
-
-if($sql == false){
-
-echo  " Connection error code 118#
-!!";
-
-
-}
-
-$username = $_POST['name'];
-$message=$_POST['message'];
-
-
-$qry  = "INSERT INTO complaints VALUES ('$username','$message')";
-
-if(mysqli_query($sql,$qry) == 1){
-
-echo "<h4>Your query has been received !we will look into your doubts and contact you soon!</h4>";
-
-
-
-}else
-
-echo " " . mysqli_error();
-
-
-}
-
-
-
-
-?>
-
-
-<form action="" method="post">
+<form action="comp.php" method="post">
 <div class="form-floating mb-3">
 <input class="form-control" id="inputName" type="text" name="name" placeholder="Enter your name..."  required/>
 <label for="inputName">Full name</label>

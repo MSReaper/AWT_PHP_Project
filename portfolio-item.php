@@ -58,53 +58,9 @@
 <div class="col-lg-8 col-xl-6">
 
 
-<?php
-
-session_start();
-
-if(isset($_POST['submit'])){
 
 
-$server = "localhost";
-$user = "root";
-$pass = "";
-$db = "hoteldata";
-
-$sql = mysqli_connect($server,$user,$pass,$db);
-
-if($sql == false){
-
-echo  " Connection error code 118#
-!!";
-
-
-}
-
-$username = $_POST['name'];
-$food=$_POST['food'];
-$quant=$_POST['quantity'];
-$place= $_POST['place'];
-$phone=$_POST['phone'];
-
-$qry  = "INSERT INTO user_orders VALUES ('$username','$food','$phone','$quant','$place')";
-
-if(mysqli_query($sql,$qry) == 1){
-
-echo "<h3>Your Order has been placed</h3>";
-}else
-
-echo " " . mysqli_error();
-
-
-}
-
-
-
-
-?>
-
-
-<form action="" method="post">
+<form action="order.php" method="post">
 <div class="form-floating mb-3">
 <input class="form-control" id="inputName" type="text" name="name" placeholder="Enter your name..."  required/>
 <label for="inputName">Full name</label>

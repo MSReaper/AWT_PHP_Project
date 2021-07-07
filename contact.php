@@ -1,4 +1,16 @@
 
+<?php
+
+    
+
+
+
+    
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,53 +69,7 @@
 <div class="row gx-5 justify-content-center">
 <div class="col-lg-8 col-xl-6">
 
-
-<?php
-
-session_start();
-
-if(isset($_POST['submit'])){
-
-
-$server = "localhost";
-$user = "root";
-$pass = "";
-$db = "hoteldata";
-
-$sql = mysqli_connect($server,$user,$pass,$db);
-
-if($sql == false){
-
-echo  " Connection error code 118#
-!!";
-
-
-}
-
-$username = $_POST['name'];
-$email=$_POST['email'];
-$phone=$_POST['phone'];
-$msg = $_POST['message'];
-
-$qry  = "INSERT INTO contact VALUES ('$username','$email','$phone','$msg')";
-
-if(mysqli_query($sql,$qry) == 1){
-
-echo "<h3>THANK YOU for contacting us . we will shortly contact you..</h3>";
-}else
-
-echo " " . mysqli_error();
-
-
-}
-
-
-
-
-?>
-
-
-<form action="" method="post">
+<form action="cform.php" method="post">
 <div class="form-floating mb-3">
 <input class="form-control" id="inputName" type="text" name="name" placeholder="Enter your name..."  required/>
 <label for="inputName">Full name</label>
